@@ -1,0 +1,183 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    height: 100vh;
+    display: flex;
+}
+
+/* Container */
+.container {
+    display: flex;
+    width: 100%; /* Largura total do container */
+    height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+}
+
+/* Barra Lateral */
+.sidebar {
+    width: 250px;
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100vh; /* Altura fixa para a barra lateral */
+    left: 0;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #f4f4f4;
+    font-size: 1.1rem;
+    display: block;
+    transition: color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Conteúdo Principal */
+.content {
+    margin-left: 250px; /* Espaço para a barra lateral */
+    padding: 40px;
+    background-color: #ffffff;
+    height: 100vh; /* Altura total da tela */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: calc(100% - 250px); /* Ajusta a largura */
+}
+
+/* Campo de Busca */
+.search-container {
+    margin-bottom: 20px; /* Espaço abaixo do campo de busca */
+    display: flex; /* Flex para alinhar o input e o botão */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.search-input {
+    width: 300px; /* Largura do campo de busca */
+    height: 40px; /* Altura do campo de busca */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda do campo */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-right: 10px; /* Espaço entre o input e o botão */
+}
+
+.search-btn {
+    background-color: #000; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 15px; /* Espaçamento interno do botão */
+    border: none; /* Remove borda padrão */
+    border-radius: 4px; /* Arredonda as bordas do botão */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+.search-btn:hover {
+    background-color: #555; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilos da Tabela */
+.book-table {
+    width: 100%; /* Largura total da tabela */
+    border-collapse: collapse; /* Remove espaços entre células */
+    margin-top: 20px; /* Espaçamento acima da tabela */
+}
+
+.book-table th,
+.book-table td {
+    border: 1px solid #ddd; /* Borda das células */
+    padding: 10px; /* Espaçamento interno das células */
+    text-align: left; /* Alinha texto à esquerda */
+}
+
+.book-table th {
+    background-color: #f4f4f4; /* Fundo das cabeçalhos */
+}
+
+/* Estilo para mensagem de sucesso */
+.alert-success {
+    background-color: #d4edda; /* Verde claro */
+    border: 1px solid #c3e6cb; /* Verde médio */
+    color: #155724; /* Verde escuro */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-success span {
+    flex-grow: 1;
+}
+
+/* Estilo para mensagem de erro */
+.alert-danger {
+    background-color: #f8d7da; /* Vermelho claro */
+    border: 1px solid #f5c6cb; /* Vermelho médio */
+    color: #721c24; /* Vermelho escuro */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-danger span {
+    flex-grow: 1;
+}
+/* Estilos Gerais dos Botões */
+.edit-btn,
+.delete-btn {
+    display: inline-block; /* Para que os botões fiquem lado a lado */
+    padding: 10px 15px; /* Espaçamento interno */
+    border-radius: 4px; /* Borda arredondada */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold; /* Negrito */
+    margin-right: 10px; /* Espaço entre os botões */
+}
+
+/* Estilo do Botão Editar */
+.edit-btn {
+    background-color: #007bff; /* Azul */
+    color: #fff; /* Texto branco */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+.edit-btn:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilo do Botão Deletar */
+.delete-btn {
+    background-color: #dc3545; /* Vermelho */
+    color: #fff; /* Texto branco */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+.delete-btn:hover {
+    background-color: #c82333; /* Vermelho mais escuro ao passar o mouse */
+}

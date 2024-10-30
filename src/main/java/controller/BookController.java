@@ -177,7 +177,7 @@ public class BookController {
             mv.addObject("book", bookDto);
             mv.addObject("number", notificationUtil.getNumberNotification());
             mv.addObject("category", CategoryBook());
-            mv.addObject("Isbn", gerador_IsBn.GeradorCodigo());
+            mv.addObject("isbn", gerador_IsBn.GeradorCodigo());
             mv.addObject("Avalible", AvailabilityBook());
             mv.setViewName("html/adicionar-livro.html");
             return mv;

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notificações - Igreja Metodista</title>
+	<link rel="stylesheet" href="/css/notificacoa.css">
+</head>
+
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<h2>Menu</h2>
+			<nav>
+				<ul>
+					<li><a th:href="@{/www.com.metodista.gerenciamento.consultas}">Início</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/books}">Livros</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/person}">Usuários com Emprestimo </a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/notificacoes}" th:text="'Notificações ' + '0' +${number}"></a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/loans/register/}">Empréstimo</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/lista/Emprestimos}">Lista de Empréstimos</a></li>
+										<li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/add-book}">Adicionar Livro</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<main class="content">
+			<header class="header">
+				<h1>Notificações</h1>
+			</header>
+			<div class="notification-container">
+				<!-- Itera sobre a lista de notificações usando Thymeleaf -->
+				<div th:each="notification : ${notification}">
+					<div class="notification">
+						<p><strong>Nova mensagem:</strong> <span th:text="${notification.message}"></span></p>
+						<!-- Botão para excluir a notificação -->
+						<form th:action="@{/www.com.metodista.gerenciamento.consultas/delete/notificacoes}" method="post" style="display:inline;">
+							
+							<input type="hidden" name="id" th:value="${notification.id}">
+							<button type="submit" class="delete-button">Excluir</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

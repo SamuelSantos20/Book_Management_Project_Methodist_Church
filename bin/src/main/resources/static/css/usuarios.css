@@ -1,0 +1,152 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4; /* Cor de fundo da página */
+    height: 100vh; /* Altura total da viewport */
+    display: flex; /* Flex para o layout */
+}
+
+/* Container para barra lateral e conteúdo */
+.container {
+    display: flex;
+    width: 100%; /* Largura total do container */
+}
+
+/* Barra Lateral */
+.sidebar {
+    width: 250px; /* Largura fixa da barra lateral */
+    background-color: #000; /* Cor de fundo da barra lateral */
+    color: white; /* Cor do texto da barra lateral */
+    padding: 20px; /* Espaçamento interno */
+    position: fixed; /* Mantém a barra lateral fixa */
+    height: 100vh; /* Altura total da barra lateral */
+    left: 0; /* Posiciona à esquerda */
+    overflow-y: auto; /* Permite rolagem caso o conteúdo exceda a altura */
+}
+
+.sidebar h2 {
+    font-size: 1.5rem; /* Tamanho da fonte do título */
+    margin-bottom: 20px; /* Margem inferior do título */
+}
+
+.sidebar nav ul {
+    list-style: none; /* Remove marcadores da lista */
+    padding-left: 0; /* Remove preenchimento à esquerda */
+}
+
+.sidebar nav ul li {
+    margin: 15px 0; /* Margem entre os itens do menu */
+}
+
+.sidebar nav ul li a {
+    text-decoration: none; /* Remove sublinhado dos links */
+    color: #f4f4f4; /* Cor do texto dos links */
+    font-size: 1.1rem; /* Tamanho da fonte dos links */
+    display: block; /* Faz com que o link ocupe toda a largura do item */
+    transition: color 0.3s; /* Efeito de transição de cor */
+}
+
+.sidebar nav ul li a:hover {
+    color: #ddd; /* Cor ao passar o mouse sobre o link */
+}
+
+/* Conteúdo Principal */
+.content {
+    margin-left: 250px; /* Espaço à esquerda para não ficar atrás da sidebar */
+    padding: 40px; /* Espaçamento interno */
+    background-color: #ffffff; /* Cor de fundo do conteúdo */
+    height: calc(100vh - 40px); /* Altura do conteúdo subtraindo o padding */
+    overflow-y: auto; /* Permite rolagem no conteúdo principal, se necessário */
+    display: flex; /* Flex para o layout */
+    flex-direction: column; /* Coloca os elementos em coluna */
+    text-align: center; /* Centraliza o texto */
+    width: calc(100% - 250px); /* Ajusta a largura do conteúdo */
+}
+
+/* Campo de Busca */
+.search-container {
+    margin-bottom: 20px; /* Espaço abaixo do campo de busca */
+    display: flex; /* Flex para alinhar o input e o botão */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.search-input {
+    width: 300px; /* Largura do campo de busca */
+    height: 40px; /* Altura do campo de busca */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda do campo */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-right: 10px; /* Espaço entre o input e o botão */
+}
+
+.search-btn {
+    background-color: #000; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 15px; /* Espaçamento interno do botão */
+    border: none; /* Remove borda padrão */
+    border-radius: 4px; /* Arredonda as bordas do botão */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+.search-btn:hover {
+    background-color: #555; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilos da Tabela */
+.user-table {
+    width: 100%; /* Largura total da tabela */
+    border-collapse: collapse; /* Remove espaços entre células */
+    margin-top: 20px; /* Espaçamento acima da tabela */
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd; /* Borda das células */
+    padding: 10px; /* Espaçamento interno das células */
+    text-align: left; /* Alinha texto à esquerda */
+}
+
+.user-table th {
+    background-color: #f4f4f4; /* Fundo das cabeçalhos */
+}
+
+/* Estilo para mensagem de sucesso */
+.alert-success {
+    background-color: #d4edda; /* Verde claro */
+    border: 1px solid #c3e6cb; /* Verde médio */
+    color: #155724; /* Verde escuro */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-success span {
+    flex-grow: 1;
+}
+
+/* Estilo para mensagem de erro */
+.alert-danger {
+    background-color: #f8d7da; /* Vermelho claro */
+    border: 1px solid #f5c6cb; /* Vermelho médio */
+    color: #721c24; /* Vermelho escuro */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-danger span {
+    flex-grow: 1;
+}

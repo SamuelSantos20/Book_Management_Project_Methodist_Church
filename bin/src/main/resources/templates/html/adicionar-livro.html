@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Adicionar Livro - Igreja Metodista</title>
+	<link rel="stylesheet" href="/css/add-livros.css">
+</head>
+
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<h2>Menu</h2>
+			<nav>
+				<ul>
+					<li><a th:href="@{/www.com.metodista.gerenciamento.consultas}">Início</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/books}">Livros</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/person}">Usuários com Emprestimo </a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/notificacoes}" th:text="'Notificações ' + '0' +${number}"></a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/loans/register/}">Empréstimo</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/lista/Emprestimos}">Lista de Empréstimos</a></li>
+										<li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/add-book}">Adicionar Livro</a></li>
+				</ul>
+			</nav>
+		</aside>
+
+
+
+
+		<main class="content">
+
+			<div th:if="${successMessage}" class="alert alert-success" role="alert">
+				<span th:text="${successMessage}"></span>
+			</div>
+
+			<div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+				<span th:text="${errorMessage}"></span>
+			</div>
+
+			<header>
+				<h1>Adicionar Livro</h1>
+			</header>
+			<section>
+				<p>Preencha as informações abaixo para adicionar um novo livro ao sistema.</p>
+				<form class="book-form" th:action=" ${book.id == null} ? @{/www.com.metodista.gerenciamento.consultas/add-book} : @{/www.com.metodista.gerenciamento.consultas/update/book}"
+					th:object="${book}" method="post">
+					<label for="title">Título:</label>
+					<input type="text" id="title" th:field="*{title}" required>
+
+					<label for="author">Autor:</label>
+					<input type="text" id="author" th:field="*{author}" required>
+
+					<!-- Categoria como um dropdown de seleção -->
+					<label for="category">Categoria:</label>
+					<select id="category" name="category" th:field="*{typeCategory}" required>
+						<option value="">Selecione a Categoria</option>
+						<option th:each="c: ${category}" th:value="${c}" th:text="${c}" name="category" required>
+						</option>
+					</select>
+
+					<label for="isbn">ISBN:</label>
+					<input type="text" id="isbn" th:value="${isbn}" name="isbn" required readonly>
+
+					
+					<select id="category" name="Avalible" required th:field="*{availabilitybook}">
+						<option value="">Selecione a Disponibilidade</option>
+						<option th:each="a: ${Avalible}" th:value="${a}" th:text="${a}" name="Avalible" required>
+						</option>
+					</select>
+
+					<button type="submit">Salvar Livro</button>
+				</form>
+			</section>
+		</main>
+	</div>
+</body>
+
+</html>

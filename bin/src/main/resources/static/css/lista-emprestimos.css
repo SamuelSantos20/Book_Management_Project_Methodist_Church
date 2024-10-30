@@ -1,0 +1,213 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4; /* Cor de fundo da página */
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Altura total da janela */
+}
+
+/* Barra Lateral */
+.sidebar {
+    width: 250px; /* Largura fixa da barra lateral */
+    background-color: #000; /* Cor de fundo da barra lateral */
+    color: white; /* Cor do texto da barra lateral */
+    padding: 20px; /* Espaçamento interno */
+    position: fixed; /* Mantém a barra lateral fixa */
+    height: 100%; /* Altura total da barra lateral */
+    overflow-y: auto; /* Permite rolagem caso o conteúdo exceda a altura da tela */
+}
+
+.sidebar h2 {
+    font-size: 1.5rem; /* Tamanho da fonte do título */
+    margin-bottom: 20px; /* Margem inferior do título */
+}
+
+.sidebar nav ul {
+    list-style: none; /* Remove marcadores da lista */
+}
+
+.sidebar nav ul li {
+    margin: 15px 0; /* Espaçamento entre os itens do menu */
+}
+
+.sidebar nav ul li a {
+    text-decoration: none; /* Remove sublinhado dos links */
+    color: #f4f4f4; /* Cor do texto dos links */
+    font-size: 1.1rem; /* Tamanho da fonte dos links */
+    display: block; /* Faz com que o link ocupe toda a largura do item */
+    transition: color 0.3s; /* Efeito de transição de cor */
+}
+
+.sidebar nav ul li a:hover {
+    color: #ddd; /* Cor ao passar o mouse sobre o link */
+}
+
+/* Campo de Busca */
+.search-container {
+    margin-bottom: 20px; /* Espaço abaixo do campo de busca */
+    display: flex; /* Flex para alinhar o input e o botão */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.search-input {
+    width: 300px; /* Largura do campo de busca */
+    height: 40px; /* Altura do campo de busca */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda do campo */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-right: 10px; /* Espaço entre o input e o botão */
+}
+
+.search-btn {
+    background-color: #000; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 15px; /* Espaçamento interno do botão */
+    border: none; /* Remove borda padrão */
+    border-radius: 4px; /* Arredonda as bordas do botão */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+.search-btn:hover {
+    background-color: #555; /* Cor do botão ao passar o mouse */
+}
+
+/* Conteúdo Principal */
+.content {
+    flex: 1; /* Ocupa o espaço restante */
+    padding: 40px; /* Espaçamento interno */
+    padding-left: 270px; /* Adiciona espaço para evitar que o conteúdo fique atrás da sidebar */
+    display: flex;
+    flex-direction: column; /* Coloca os elementos em coluna */
+    align-items: center; /* Alinha os itens ao centro */
+    background-color: #ffffff; /* Cor de fundo do conteúdo */
+}
+
+.content header {
+    display: flex;
+    align-items: center; /* Alinha itens verticalmente */
+    justify-content: center; /* Centraliza itens horizontalmente */
+    margin-bottom: 20px; /* Margem inferior do cabeçalho */
+}
+
+.content h1 {
+    font-size: 2.5rem; /* Tamanho do título */
+    color: #333; /* Cor do título */
+}
+
+.loan-table {
+    width: 100%; /* Largura total da tabela */
+    max-width: 800px; /* Largura máxima da tabela */
+    border-collapse: collapse; /* Remove espaços entre as células */
+    margin-top: 20px; /* Margem superior da tabela */
+}
+
+.loan-table th,
+.loan-table td {
+    padding: 12px 15px; /* Espaçamento interno */
+    text-align: left; /* Alinha texto à esquerda */
+    border: 1px solid #ddd; /* Borda das células */
+}
+
+.loan-table th {
+    background-color: #333; /* Fundo do cabeçalho da tabela */
+    color: #fff; /* Cor do texto do cabeçalho */
+}
+
+.loan-table tr:nth-child(even) {
+    background-color: #f4f4f4; /* Cor de fundo para linhas pares */
+}
+
+.loan-table tr:hover {
+    background-color: #e9e9e9; /* Cor ao passar o mouse sobre a linha */
+}
+
+.loan-table td {
+    color: #333; /* Cor do texto das células */
+}
+
+footer {
+    margin-top: 20px; /* Margem superior do rodapé */
+}
+
+footer a {
+    text-decoration: none; /* Remove sublinhado do link */
+    color: #000; /* Cor do texto do link */
+}
+
+/* Estilo para mensagem de sucesso */
+.alert-success {
+    background-color: #d4edda; /* Verde claro */
+    border: 1px solid #c3e6cb; /* Verde médio */
+    color: #155724; /* Verde escuro */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-success span {
+    flex-grow: 1;
+}
+
+/* Estilo para mensagem de erro */
+.alert-danger {
+    background-color: #f8d7da; /* Vermelho claro */
+    border: 1px solid #f5c6cb; /* Vermelho médio */
+    color: #721c24; /* Vermelho escuro */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-danger span {
+    flex-grow: 1;
+}	
+
+/* Estilo para os botões */
+.edit-button,
+.delete-button {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 4px 2px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Estilo específico para o botão Editar */
+.edit-button {
+    background-color: rgb(0, 128, 255); /* Azul */
+}
+
+/* Estilo específico para o botão Excluir */
+.delete-button {
+    background-color: #f44336; /* Vermelho */
+}
+
+/* Efeito ao passar o mouse sobre os botões */
+.edit-button:hover {
+    background-color: rgb(43, 166, 213); /* Azul escuro */
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* Vermelho escuro */
+}

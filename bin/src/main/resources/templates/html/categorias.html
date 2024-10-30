@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Categorias - Igreja Metodista</title>
+	<link rel="stylesheet" href="/css/categoria.css">
+</head>
+
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<h2>Menu</h2>
+			<nav>
+				<u				<li><a th:href="@{/www.com.metodista.gerenciamento.consultas}">Início</a></li>
+				                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/books}">Livros</a></li>
+				                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/person}">Usuários com Emprestimo </a></li>
+				                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/notificacoes}" th:text="'Notificações ' + '0' +${number}"></a></li>
+				                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/loans/register/}">Empréstimo</a></li>
+				                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/lista/Emprestimos}">Lista de Empréstimos</a></li>
+									<li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/add-book}">Adicionar Livro</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<main class="content">
+			<header>
+				<h1>Categorias</h1>
+			</header>
+			<section>
+				<p>Lista de categorias disponíveis.</p>
+				<table class="category-table">
+					<thead>
+						<tr>
+							<th>Categoria</th>
+							<th>Descrição</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Ficção Científica</td>
+							<td>Livros sobre temas futuristas e tecnológicos.</td>
+						</tr>
+						<tr>
+							<td>Romance</td>
+							<td>Histórias sobre relacionamentos e amor.</td>
+						</tr>
+						<tr>
+							<td>Biografias</td>
+							<td>Livros sobre histórias reais de pessoas inspiradoras.</td>
+						</tr>
+						<tr>
+							<td>Literatura Brasileira</td>
+							<td>Obras clássicas e contemporâneas do Brasil.</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</div>
+</body>
+
+</html>

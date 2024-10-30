@@ -31,5 +31,4 @@
 
 Desenvolvido por Samuel Santos 👨‍💻
 
-Essa descrição fornece uma visão clara do propósito do projeto, destacando suas principais funcionalidades. Sinta-se à vontade para ajustar conforme necessário!
 

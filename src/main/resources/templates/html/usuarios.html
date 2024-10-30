@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Usuários - Igreja Metodista</title>
+	<link rel="stylesheet" href="/css/usuarios.css">
+</head>
+
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<h2>Menu</h2>
+			<nav>
+				<ul>
+					<li><a th:href="@{/www.com.metodista.gerenciamento.consultas}">Início</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/books}">Livros</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/person}">Usuários com Emprestimo </a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/notificacoes}" th:text="'Notificações ' + '0' +${number}"></a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/loans/register/}">Empréstimo</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/lista/Emprestimos}">Lista de Empréstimos</a></li>
+										<li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/add-book}">Adicionar Livro</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<main class="content">
+			<header>
+				<h1>Usuários</h1>
+			</header>
+			
+			
+
+			<section>
+
+				<!-- Campo de busca -->
+				<div class="search-container">
+					<form th:action="@{/www.com.metodista.gerenciamento.consultas/list/serach}" method="post">				
+					
+					<input type="text" id="search" placeholder="Buscar usuário por nome ou CPF" name="text" class="search-input">
+					<button type="submit" class="search-btn">Buscar</button>
+					
+					</form>
+				</div>
+
+				<table class="user-table">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>Endereço</th>
+							<th>Telefone</th>
+							<th>Livro em Emprestimo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each=" p :${Persons}">
+							<td th:value="${p.name}" th:text="${p.name}"></td>
+							<td th:value="${p.cpf}" th:text="${p.cpf}"></td>
+							<td th:value="${p.address.street}" th:text="${p.address.street}"></td>
+							<td th:each="t : ${p.telefones}" th:value="${t}" th:text="${t}"></td>
+							<td th:each="book : ${p.books}" th:value="${book.title}" th:text="${book.title}"></td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <h2>Menu</h2>
+            <nav>
+                <ul>
+                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas}">Início</a></li>
+                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/books}">Livros</a></li>
+                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/person}">Usuários com Emprestimo </a></li>
+                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/notificacoes}" th:text="'Notificações ' + '0' +${number}"></a></li>
+                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/loans/register/}">Empréstimo</a></li>
+                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/lista/Emprestimos}">Lista de Empréstimos</a></li>
+					<li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/add-book}">Adicionar Livro</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <header>
+                <h1>Igreja Metodista</h1>
+            </header>
+            <img src="/img/png-transparent-great-hill-united-methodist-church-methodism-cross-and-flame-mt-calvary-united-methodist-blood-donation-angle-text-logo.png" alt="Logo da Igreja" class="logo"> <!-- Caminho correto para a imagem -->
+            <section>
+                <p>Bem-vindo ao sistema de empréstimo de livros da Igreja Metodista.</p>
+                <p>Use o menu lateral para navegar entre as seções.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

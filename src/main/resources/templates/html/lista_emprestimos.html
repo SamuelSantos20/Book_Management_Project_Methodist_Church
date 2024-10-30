@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista de Empréstimos - Igreja Metodista</title>
+	<link rel="stylesheet" href="/css/lista-emprestimos.css">
+</head>
+
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<h2>Menu</h2>
+			<nav>
+				<ul>
+					<li><a th:href="@{/www.com.metodista.gerenciamento.consultas}">Início</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/books}">Livros</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/list/person}">Usuários com Emprestimo </a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/notificacoes}" th:text="'Notificações ' + '0' +${number}"></a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/loans/register/}">Empréstimo</a></li>
+					                    <li><a th:href="@{/www.com.metodista.gerenciamento.consultas/lista/Emprestimos}">Lista de Empréstimos</a></li>
+										<li><a th:href="@{/www.com.metodista.gerenciamento.consultas/pre/add-book}">Adicionar Livro</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<main class="content">
+			<header>
+				<h1>Lista de Empréstimos</h1>
+			</header>
+			<section class="loan-list">
+
+				<!-- Campo de busca -->
+				<div class="search-container">
+					
+					<form th:action="@{/www.com.metodista.gerenciamento.consultas/serach/Emprestimos}" method="post">					
+					
+						<input type="text" id="search" placeholder="Buscar usuário por nome ou CPF" name="text" class="search-input">
+					    <button type="submit" class="search-btn">Buscar</button>
+					
+					</form>
+				</div>
+				
+				<table class="loan-table">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Livro</th>
+							<th>Data de Saída</th>
+							<th>Data de Devolução</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="e : ${Emprestimos}">
+							<td th:text="${e.person.name}"></td>
+							<td th:text="${e.book.title}"></td>
+							<td th:text="${#dates.format(departuredate, 'dd/MM/yyyy')}"></td>
+							<td th:text="${#dates.format(returnDate, 'dd/MM/yyyy')}"></td>
+							<td>
+								<form th:action="@{/www.com.metodista.gerenciamento.consultas/pre/update/Emprestimos}" method="post">
+								 	<input type="hidden" name="id" th:value="${e.id}">
+									<button type="submit" class="edit-button">Editar</button>
+								</form>
+								
+								<form th:action="@{/www.com.metodista.gerenciamento.consultas/loans/delete/Emprestimo}" method="post">	
+									<input type="hidden" name="id" th:value="${e.id}">							
+								<button type="submit" class="delete-button">Excluir</button>
+								</form>
+							</td>
+						</tr>
+						<tr th:if="${#lists.isEmpty(Emprestimos)}">
+							<td colspan="5">Nenhum empréstimo registrado.</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</section>
+
+		</main>
+	</div>
+</body>
+
+</html>

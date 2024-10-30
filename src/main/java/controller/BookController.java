@@ -215,7 +215,7 @@ public class BookController {
         }
     }
 
-    /**
+    /** 
      * Exclui um livro do sistema.
      *
      * @param id ID do livro a ser excluído.

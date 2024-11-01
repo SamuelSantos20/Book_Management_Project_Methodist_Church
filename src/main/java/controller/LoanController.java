@@ -208,6 +208,47 @@ public class LoanController {
 		}
 	}
 
+	
+	@PostMapping("/www.com.metodista.gerenciamento.consultas/serach/Emprestimos")
+	public ModelAndView SerachLoans(@RequestParam("text") String text) {
+		ModelAndView mv = new ModelAndView();
+		try {
+			List<LoanDto> loanDtos = loanServiceImpl.SerachLoanDto(text);
+
+			List<Date> departureDates = new ArrayList<>();
+			List<Date> returnDates = new ArrayList<>();
+
+			for (LoanDto loanDto : loanDtos) {
+				// Convertendo LocalDate para Date
+				Date departureDate = DateConverter.convertLocalDateToDate(loanDto.getLoanDate());
+				Date returnDate = DateConverter.convertLocalDateToDate(loanDto.getReturnDate());
+
+				departureDates.add(departureDate);
+				returnDates.add(returnDate);
+			}
+
+			mv.addObject("Emprestimos", loanServiceImpl.SerachLoanDto(text));
+
+			mv.addObject("departuredate", departureDates);
+
+			mv.addObject("returnDate", returnDates);
+
+			mv.addObject("number", notificationUtil.getNumberNotification());
+			
+			mv.setViewName("html/lista_emprestimos.html");
+			return mv;
+			
+
+		} catch (Exception e) {
+
+			mv.setViewName("redirect:/error");
+			return mv;
+		}
+	}
+	
+	
+	
+	
 	// Métodos para atualização de empréstimo...
 
 	/**
@@ -220,8 +261,18 @@ public class LoanController {
 	public ModelAndView deleteLoan(@RequestParam("id") Long id) {
 		ModelAndView mv = new ModelAndView();
 		try {
+			
+			List<LoanDto> loanDtos = loanServiceImpl.findAllLoanDto();
+			List<Date> departureDates = new ArrayList<>();
+			List<Date> returnDates = new ArrayList<>();
+
+			
 			loanServiceImpl.deleteLoan(id);
 			mv.addObject("successMessage", "Empréstimo Deletado com Sucesso!");
+			mv.addObject("Emprestimos", loanServiceImpl.findAllLoanDto());
+			mv.addObject("departuredate", departureDates);
+			mv.addObject("returnDate", returnDates);
+			mv.addObject("number", notificationUtil.getNumberNotification());
 			mv.setViewName("html/lista_emprestimos.html");
 			return mv;
 

@@ -247,6 +247,32 @@ public class BookController {
         }
     }
 
+  /***Metodo que faz a pesquisa de livros contidos no sistema
+   * 
+   *  
+   * */
+  	@PostMapping("/www.com.metodista.gerenciamento.consultas/serach/books")
+  	public ModelAndView Serachbook(@RequestParam("text") String text) {
+  		ModelAndView mv = new ModelAndView();
+
+  		try {
+  		
+
+  			mv.addObject("books", bookServiceImpl.SerachBookDto(text));
+  			mv.addObject("number", notificationUtil.getNumberNotification());
+  			mv.setViewName("html/livros.html");
+  			return mv;
+
+  		} catch (Exception e) {
+  			System.out.println(e);
+  			mv.setViewName("redirect:/error");
+  			return mv;
+  		}
+  	}
+
+
+    
+    
     /**
      * @return Valores de `CategoryBook` para exibir categorias no front-end.
      */

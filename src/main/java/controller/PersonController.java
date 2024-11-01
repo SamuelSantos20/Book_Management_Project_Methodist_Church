@@ -42,6 +42,28 @@ public class PersonController {
         }
     }
 
+    
+    @PostMapping("/www.com.metodista.gerenciamento.consultas/list/serach")
+	public ModelAndView Serach(@RequestParam("text") String text) {
+		ModelAndView mv = new ModelAndView();
+		try {
+
+			mv.addObject("persons", personSeviceImpl.SerachPersonDto(text));
+			mv.addObject("number", notificationUtil.getNumberNotification());
+			mv.setViewName("html/usuarios.html");
+			return mv;
+
+		} catch (Exception e) {
+
+			mv.setViewName("redirect:/error");
+			return mv;
+
+		}
+	}
+
+
+    
+    
     /**
      * Método POST para buscar pessoas com base em texto de pesquisa.
      * Mapeado para o endpoint "/www.com.metodista.gerenciamento.consultas/list/search".

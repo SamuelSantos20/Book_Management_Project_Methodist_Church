@@ -54,7 +54,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each=" p :${Persons}">
+						<tr th:each=" p :${persons}">
 							<td th:value="${p.name}" th:text="${p.name}"></td>
 							<td th:value="${p.cpf}" th:text="${p.cpf}"></td>
 							<td th:value="${p.address.street}" th:text="${p.address.street}"></td>

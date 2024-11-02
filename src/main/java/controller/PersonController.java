@@ -43,6 +43,13 @@ public class PersonController {
     }
 
     
+    /**Metodo que faz a pesquisa de livros contidos no sistema
+   * @param text String que o usuario envia pelo parametro 
+   * fazendo uma busca pelo banco de dados pela inicial ou palavra digitada 
+   * fazendo uma busca mais aprofundada do usuario que possui um empretimo ativo 
+   * como: endereço , cpf , Livro que está em emprestimo e Telefone  
+   * */
+    
     @PostMapping("/www.com.metodista.gerenciamento.consultas/list/serach")
 	public ModelAndView Serach(@RequestParam("text") String text) {
 		ModelAndView mv = new ModelAndView();

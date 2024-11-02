@@ -209,6 +209,15 @@ public class LoanController {
 	}
 
 	
+	
+	/***Metodo que faz a pesquisa de livros contidos no sistema
+	   * @param text String que o usuario envia pelo parametro 
+	   * fazendo uma busca pelo banco de dados pela inicial ou palavra digitada 
+	     para localizar p usuario com o Empretimo 
+	
+	*/
+	
+	
 	@PostMapping("/www.com.metodista.gerenciamento.consultas/serach/Emprestimos")
 	public ModelAndView SerachLoans(@RequestParam("text") String text) {
 		ModelAndView mv = new ModelAndView();

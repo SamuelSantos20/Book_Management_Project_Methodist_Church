@@ -248,7 +248,8 @@ public class BookController {
     }
 
   /***Metodo que faz a pesquisa de livros contidos no sistema
-   * 
+   * @param text String que o usuario envia pelo parametro 
+   * fazendo uma busca pelo banco de dados pela inicial ou palavra digitada 
    *  
    * */
   	@PostMapping("/www.com.metodista.gerenciamento.consultas/serach/books")
